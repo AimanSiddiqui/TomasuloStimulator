@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TOMASULO STIMULATOR
+	</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<style type="text/css">
+		body{
+			bbackground: rgb(9,121,105);
+background: linear-gradient(0deg, rgba(9,121,105,0.6530987394957983) 0%, rgba(138,255,254,0.5522584033613445) 100%);
+		}
+		h7{
+			font-family: Impact;
+			text-align: center;
+		}
+		.table {
+		height: auto;
+		}
+		.table td,th{
+			padding: 1px;
+			font-size: 13.5px;
+			cursor: pointer;
+			border-color: black;
+		}
+	</style>
+</head>
+<body>
+		
+	<h7>Instruction Status Table</h7>
+	<table class="table table-hover table-bordered table-sm" id="Inst_table">
+	  <thead class="thead-dark">
+	    <tr>
+	      <th scope="col" hidden>Ins Obj</th>
+	      <th scope="col">Instruction</th>
+	      <th scope="col">Issue</th>
+	      <th scope="col">Execute</th>
+	      <th scope="col">Write Back</th>
+	      <th scope="col">Count</th>
+	      <th scope="col">Reservation Table index</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	 <!--  	<tr>
+	  	  <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	  	</tr> -->
+	  </tbody>
+	</table>
+	<h7>Reservation Status Table</h7>
+	<table class="table table-bordered table-sm" id="Reserve_Table">
+	  <thead class="thead-dark">
+	    <tr>
+	      <th scope="col">Name</th>
+	      <th scope="col">Busy</th>
+	      <th scope="col">Op</th>
+	      <th scope="col">Vj</th>
+	      <th scope="col">Vk</th>
+	      <th scope="col">Qj</th>
+	      <th scope="col">Qk</th>
+	      <th scope="col">A</th>
+	      <th scope="col">Result</th>
+
+	    </tr>
+	  </thead>
+	  <tbody>
+	  	<tr>
+	      <td scope="col">Load1</td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	     </tr>
+
+	     <tr>
+	      <td scope="col">Load2</td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	     </tr>
+
+	     <tr>
+	      <td scope="col">Add1</td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	     </tr>
+
+	     <tr>
+	      <td scope="col">Add2</td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	     </tr>
+
+	     <tr>
+	      <td scope="col">Add3</td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	     </tr>
+
+	     <tr>
+	      <td scope="col">Mult1</td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	     </tr>
+
+	     <tr>
+	      <td scope="col">Mult2</td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	     </tr>
+
+	     <tr>
+	      <td scope="col">Store1</td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	     </tr>
+
+	     <tr>
+	      <td scope="col">Store2</td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	      <td scope="col"></td>
+	     </tr>
+	  </tbody>
+	</table>
+	<h7>Register Status</h7>
+	<table class="table table2 table-bordered table-sm" id="Register_Table">
+	  <thead class="thead-dark">
+	    <tr>
+	      <th scope="col">Field</th>	    	
+	      <th scope="col">F0</th>
+	      <th scope="col">F2</th>
+	      <th scope="col">F4</th>
+	      <th scope="col">F6</th>
+	      <th scope="col">F8</th>
+	      <th scope="col">F10</th>
+	      <th scope="col">F12</th>
+	      <th scope="col">F14</th>
+	      <th scope="col">F16</th>
+	      <th scope="col">F18</th>
+	      <th scope="col">F20</th>
+	      <th scope="col">F22</th>
+	      <th scope="col">F24</th>
+	      <th scope="col">F26</th>
+	      <th scope="col">F28</th>
+	      <th scope="col">F30</th>
+	      <th scope="col">F32</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  	<tr>
+	      <td scope="col">Qi</td>
+	      <td scope="col" id="F0">1</td>
+	      <td scope="col" id="F2">2</td>
+	      <td scope="col" id="F4">3</td>
+	      <td scope="col" id="F6">4</td>
+	      <td scope="col" id="F8">5</td>
+	      <td scope="col" id="F10">6</td>
+	      <td scope="col" id="F12">7</td>
+	      <td scope="col" id="F14">8</td>
+	      <td scope="col" id="F16">9</td>
+	      <td scope="col" id="F18">10</td>
+	      <td scope="col" id="F20">11</td>
+	      <td scope="col" id="F22">12</td>
+	      <td scope="col" id="F24">13</td>
+	      <td scope="col" id="F26">14</td>
+	      <td scope="col" id="F28">15</td>
+	      <td scope="col" id="F30">16</td>
+	      <td scope="col" id="F32">17</td>
+	    </tr>
+
+	  </tbody>
+	</table>
+<script src ="script.js"></script>
+</body>
+</html>
